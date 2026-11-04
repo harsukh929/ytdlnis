@@ -48,7 +48,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="YTDLnis"
+        android:label="MediaFetch"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -60,6 +60,8 @@
         <profileable
             android:shell="true"
             tools:targetApi="29" />
+
+        <activity android:name=".ui.more.browser.BrowserActivity" android:exported="false" android:configChanges="orientation|screenSize|keyboardHidden" />
 
         <activity
             android:name=".MainActivity"
