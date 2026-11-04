@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Build
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.webkit.WebChromeClient
@@ -147,7 +148,7 @@ class BrowserActivity : BaseActivity() {
         web.settings.loadWithOverviewMode = desktopMode
         web.settings.javaScriptCanOpenWindowsAutomatically = false
         web.settings.setSupportMultipleWindows(false)
-        web.settings.safeBrowsingEnabled = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) web.settings.safeBrowsingEnabled = true
     }
     private fun isMediaUrl(url: String): Boolean {
         val path = runCatching { URI(url).path.lowercase(Locale.ROOT) }.getOrDefault("")
