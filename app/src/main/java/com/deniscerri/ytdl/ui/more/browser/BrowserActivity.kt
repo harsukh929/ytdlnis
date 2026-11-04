@@ -37,7 +37,7 @@ class BrowserActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         address = EditText(this).apply {
-            hint = "Search or enter website URL"; singleLine = true
+            hint = "Search or enter website URL"; setSingleLine(true)
             imeOptions = EditorInfo.IME_ACTION_GO
             setOnEditorActionListener { _, action, _ ->
                 if (action == EditorInfo.IME_ACTION_GO) { navigateFromAddress(); true } else false
