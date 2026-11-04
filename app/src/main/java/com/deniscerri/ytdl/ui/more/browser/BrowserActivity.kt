@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
@@ -89,6 +90,9 @@ class BrowserActivity : BaseActivity() {
     }
 
     private fun showActiveTab() {
+        (address.parent as? ViewGroup)?.removeView(address)
+        (status.parent as? ViewGroup)?.removeView(status)
+        (currentWebView().parent as? ViewGroup)?.removeView(currentWebView())
         val root = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(8) }
         val bar = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
         bar.addView(address, LinearLayout.LayoutParams(0, -2, 1f))
