@@ -25,6 +25,8 @@ jobs:
       - name: Build debug APKs
         run: |
           chmod +x ./gradlew
+          # The Google Maps secrets Gradle plugin expects this file to exist in CI.
+          touch local.properties
           ./gradlew :app:assembleGithubDebug --stacktrace
       - name: Upload APK artifacts
         uses: actions/upload-artifact@v4
