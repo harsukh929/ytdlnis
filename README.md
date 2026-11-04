@@ -1,7 +1,10 @@
 <h1 align="center">
 	<img src="fastlane/metadata/android/en-US/images/icon.png" width="25%" /> <br>
-	YTDLnis
+	MediaFetch
 </h1>
+
+> MediaFetch is an independent GPL-3.0 fork. It builds on the original [YTDLnis project](https://github.com/deniscerri/ytdlnis); see upstream for original credits and license history.
+
 
 <div align="center">
 	English
