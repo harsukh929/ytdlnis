@@ -21,6 +21,7 @@ import androidx.preference.PreferenceManager
 import com.deniscerri.ytdl.MainActivity
 import com.deniscerri.ytdl.R
 import com.deniscerri.ytdl.database.viewmodel.DownloadViewModel
+import com.deniscerri.ytdl.ui.more.browser.BrowserActivity
 import com.deniscerri.ytdl.ui.more.settings.SettingsActivity
 import com.deniscerri.ytdl.ui.more.terminal.TerminalActivity
 import com.deniscerri.ytdl.util.NavbarUtil
@@ -32,6 +33,7 @@ import kotlin.system.exitProcess
 class MoreFragment : Fragment() {
     private lateinit var mainSharedPreferences: SharedPreferences
     private lateinit var mainSharedPreferencesEditor: SharedPreferences.Editor
+    private lateinit var browser: TextView
     private lateinit var terminal: TextView
     private lateinit var logs: TextView
     private lateinit var commandTemplates: TextView
@@ -57,6 +59,7 @@ class MoreFragment : Fragment() {
 
         mainSharedPreferences =  PreferenceManager.getDefaultSharedPreferences(requireContext())
         mainSharedPreferencesEditor = mainSharedPreferences.edit()
+        browser = view.findViewById(R.id.browser)
         terminal = view.findViewById(R.id.terminal)
         logs = view.findViewById(R.id.logs)
         commandTemplates = view.findViewById(R.id.command_templates)
@@ -87,6 +90,8 @@ class MoreFragment : Fragment() {
         terminal.isVisible = !showingTerminal
         downloads.isVisible = !showingDownloads
         downloadQueue.isVisible = !showingDownloadQueue
+
+        browser.setOnClickListener { startActivity(Intent(requireContext(), BrowserActivity::class.java)) }
 
         terminal.setOnClickListener {
             val intent = Intent(context, TerminalActivity::class.java)
